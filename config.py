@@ -5,16 +5,16 @@
 # data config
 trainroot = '/data2/dataset/ICD15/train'
 testroot = '/data2/dataset/ICD15/test'
-output_dir = 'output/psenet_icd2015_resnet50_my_loss_0.0001_author_crop_adam_newcrop_warm_up_authorloss'
+output_dir = 'output/psenet_icd2015_resnet152_4gpu_author_crop_adam_MultiStepLR_authorloss'
 data_shape = 640
 
 # train config
-gpu_id = '3'
-workers = 6
+gpu_id = '0,1,2,3'
+workers = 12
 start_epoch = 0
 epochs = 600
 
-train_batch_size = 8
+train_batch_size = 16
 
 lr = 1e-4
 end_lr = 1e-7
@@ -28,15 +28,15 @@ display_interval = 10
 show_images_interval = 50
 pretrained = True
 restart_training = True
-checkpoint = 'output/psenet_icd2015_resnet152_my_loss_0.0001_author_crop/PSENet_446_loss0.257294_r0.715936_p0.713874_f10.714904.pth'
+checkpoint = ''
 
 # net config
-backbone = 'resnet50'
+backbone = 'resnet152'
 Lambda = 0.7
 n = 6
 m = 0.5
 OHEM_ratio = 3
-
+scale = 1
 # random seed
 seed = 2
 
